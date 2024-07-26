@@ -1,0 +1,142 @@
+
+.custom-header{
+    height: 40px;
+    border-bottom: 1px solid #bdbdbd;
+    width: 100%;
+    margin-bottom: 10px;
+    i{
+        background-color: #122e56;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 4px;
+        padding: 7px;
+        margin: 0;
+    }
+    h1{
+        margin: 0;
+        padding: 0;
+        color: #122e56;
+    }
+      
+}
+.custom-main {
+    width: 96%;
+  }
+  
+.custom-dashboard{
+    padding: 0 40px;
+    min-height: 90vh;
+}
+
+.custom-content {
+    width: 350px;
+    font-size: 13px;
+        img {
+            margin-bottom: 30px;
+        }
+        h3{
+            margin: 10px 0 ;
+            color: #122e56;
+            font-size: 20px;
+        }
+        p {
+        color: grey;
+        margin-top: 20px;
+
+        &:first-of-type{
+            margin: 0px;
+        }
+        &:last-child{
+            margin-bottom: 120px;
+        }
+        }
+
+}
+  
+.custom-center-image {
+    width: 350px;
+    position: relative;
+    bottom: 130px;
+    left: 140px;
+    transform: translate(-50%, 50%);
+
+  }
+
+.custom-cards{
+    .p-card {
+        text-align: center;
+        box-shadow: none;
+        border-radius: 8px;
+        .p-card-content {
+            padding: 0;
+            p{
+                font-size: 10px;
+            }
+        }
+        .p-card-title {
+            font-size: 1rem;
+            color: #122e56;
+        }
+    }  
+
+}
+.custom.footer1{
+    .p-icon-field-right {
+        > .p-inputtext{
+            padding-right: 3rem;
+            width: 15rem;
+            border-radius: 5px;
+            height: 27px;
+            font-size: 12px;
+        }
+        > .p-input-icon:last-of-type {
+            right: 2rem;
+            font-size: smaller;
+        }
+    }
+}
+.custom.footer2,.custom.footer3{
+    Button{
+        font-size: 12px;
+        display: flex;
+        font-weight: 600;
+        padding: 6px 12px;
+        bottom: -5px;
+        left: 145px;
+        transform: translate(-50%,-50%);
+        background-color: #f10163 ;
+        border: 0;
+        border-radius: 5px;
+        &:hover{
+            opacity: 0.9;
+        }
+    }
+    .pi{
+        margin-top: 2px;
+    }
+}
+.custom.footer2 {
+    .p-button {
+      display: flex;
+      align-items: center;
+      top:10px;
+  
+      &:hover .pi {
+        transition: transform 0.2s ease-in-out;
+        transform: rotate(180deg);
+      }
+    }
+  }
+.custom.footer3{
+    Button{
+        background-color: #122e56;
+        bottom: -10px;
+    }
+    .pi{
+        margin-top: 3px;
+    }
+}
+
+  
+  
+  
