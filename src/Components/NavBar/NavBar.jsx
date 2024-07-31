@@ -1,50 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
-import avatar from '../../assets/avatar.png'; 
+import avatar from '../../assets/avatar.png';
 import { Menubar } from 'primereact/menubar';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css'; 
+import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import { Avatar } from 'primereact/avatar';
 import { Badge } from 'primereact/badge';
 import './NavBar.css';
 import { classNames } from 'primereact/utils';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
-
-  const handleMenuClick = (index, changeDesign) => {
-    setActiveIndex(index);
-    changeDesign();
-  };
+  const [activeItem, setActiveItem] = useState('/');
+  const location = useLocation();
 
   const items = [
-    {icon: 'pi pi-arrow-left', command: () => { window.location.hash = "/back"; }},
-    {icon: 'pi pi-home', command: () => { window.location.hash = "/"; }},
-    {icon: 'pi pi-users', command: () => { window.location.hash = "/users"; }},
-    {icon: 'pi pi-send', command: () => { window.location.hash = "/send"; }},
-    {icon: 'pi pi-tablet', command: () => { window.location.hash = "/tablet"; }},
-    {icon: 'pi pi-cog', command: () => { window.location.hash = "/cog"; }},
-    {icon: 'pi pi-question-circle', command: () => { window.location.hash = "/question"; }},
-    {icon: 'pi pi-sign-out', command: () => { window.location.hash = "/sign-out"; }}
+    { icon: 'pi pi-arrow-left'},
+    { icon: 'pi pi-home', path: '/' },
+    { icon: 'pi pi-users', path: '/users' },
+    { icon: 'pi pi-send', path: '/send' },
+    { icon: 'pi pi-tablet', path: '/tablets' },
+    { icon: 'pi pi-cog', path: '/cog' },
+    { icon: 'pi pi-question-circle', path: '/qa' },
+    { icon: 'pi pi-sign-out', path: '/sign-out' }
   ];
 
-  const menuActived = items.map((item, index) => ({
-    ...item,
-    className: classNames({ 'active': index === activeIndex }),
-    command: () => handleMenuClick(index, item.changeDesign)
+
+  useEffect(() => {
+    setActiveItem(location.pathname);
+  }, [location.pathname]);
+
+  const menuActived = items.map(item => ({
+    template: () => (
+      <Link to={item.path} className={`p-menuitem-link ${activeItem === item.path ? 'active' : ''}`}>
+        <i className={`${item.icon} p-menuitem-icon`}></i>
+      </Link>
+    )
   }));
 
   return (
     <nav className="flex flex-column align-items-center h-screen w-3.2rem">
-      <img src={logo} alt="logo" className="navbar-logo" style={{ width: '35px', height: '35px', marginTop: '10px' }} />
+      <img src={logo} alt="logo" className="navbar-img logo" />
       <Avatar 
         image={avatar} 
-        className="navbar-avatar p-overlay-badge" 
-        style={{ width: '35px', height: '35px', marginTop: '12px', cursor: 'pointer' }}
+        className="navbar-img avatar p-overlay-badge"
       >
-        <Badge className="badge" severity="info" /> {/* Add severity or style if needed */}
+        <Badge className="badge" severity="info" />
       </Avatar>
       <div className="flex flex-column justify-content-between h-full w-full mt-2">
         <Menubar model={menuActived} className="custom-menubar" />

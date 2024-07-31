@@ -10,23 +10,26 @@ import { InputText } from "primereact/inputtext";
 import './Main.css'
 
 const Dashboard = () =>{
-    const footer = (
-        <div className="custom footer1">
+    const searchFooter = (
+        <div className="custom searchFooter">
             <IconField iconPosition="right">
                 <InputIcon className="pi pi-search"> </InputIcon>
                 <InputText v-model="value1" placeholder="Finde Kontakte" />
             </IconField>
         </div>
     );
-    const footer2 = (
-        <div className="custom footer2">
+
+    const connectFooter = (
+        <div className="custom connectFooter">
             <Button>
                 Praxis verbinden <i className="pi pi-plus ml-2 text-xs"></i>
             </Button>
         </div>
     );
-    const footer3 = (
-        <div className="custom footer3">
+
+
+   const sendFooter = (
+        <div className="custom sendFooter">
             <Button>
             Sende uns eine Rückmeldung <i className="pi pi-send ml-2 text-xs"></i>
             </Button>
@@ -49,15 +52,15 @@ const Dashboard = () =>{
             </div>
             <div className="card container custom-cards">
                 <div className="card flex flex-column justify-content-between gap-3">
-                    <Card title="Finde die besten Spezialisten" footer={footer} className=" md:w-20rem md:h-8rem">
+                    <Card title="Finde die besten Spezialisten" footer={searchFooter} className=" md:w-20rem md:h-8rem">
                         <p className="m-0">
                         Durchsuchen Sie unser Teilnehmerverzeichnis und finden sie die beten Spezialisten in ihrer Region. </p>
                     </Card>
-                    <Card title="Mit ihrer Praxis verbinden" footer={footer2} className="md:w-20rem md:h-8rem">
+                    <Card title="Mit ihrer Praxis verbinden" footer={connectFooter} className="md:w-20rem md:h-8rem">
                         <p className="m-0">
                         Sie können sich in ihrem Profil mit ihrem Hausarzt, ihren Spezialisten und Therapeuten verbinden.</p>
                     </Card>
-                    <Card title="Sende uns eine Rückmeldung" footer={footer3} className="md:w-20rem md:h-8rem">
+                    <Card title="Sende uns eine Rückmeldung" footer={sendFooter} className="md:w-20rem md:h-8rem">
                         <p className="m-0">
                         Wir freuen uns immer, von Ihnen zu hören. Ihr Feedback wird uns helfen, besser zu werden. </p>
                     </Card>

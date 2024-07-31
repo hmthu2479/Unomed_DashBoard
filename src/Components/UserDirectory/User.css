@@ -1,0 +1,41 @@
+.p-datatable{
+  .p-datatable-header{
+    padding: 1rem 0.5rem;
+  }
+  .p-datatable-tbody {
+    > tr {
+      > td{
+        padding: 0.5rem 0.5rem;
+      }
+    }
+    > tr > td:nth-child(1){
+      display: flex;
+      justify-content: center;
+      padding: 15px 0.5rem;
+    }
+    > tr > td:nth-child(5){
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      color: #f10163;
+      padding: 23.42px 0;
+    }
+    .p-avatar{
+      border-radius: 0.4rem;
+    }
+  }
+} 
+#scrollableDiv{
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;;
+}
+.badge-icon {
+  position: absolute;
+  right: -4px;
+  top: -2px;
+  font-size: 0.6rem;
+  color: #f10163;
+  background-color: white;
+  border-radius: 50%;
+}
