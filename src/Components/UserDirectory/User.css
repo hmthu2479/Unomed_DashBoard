@@ -25,6 +25,9 @@
     }
   }
 } 
+.p-datatable-table {
+  height: 100vh;
+}
 #scrollableDiv{
   height: 100%;
   overflow-y: auto;
