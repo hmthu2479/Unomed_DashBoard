@@ -9,7 +9,7 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import { Avatar } from 'primereact/avatar';
 import { Badge } from 'primereact/badge';
-import './NavBar.css';
+import '../CSS/NavBar.css';
 
 const NavBar = () => {
   const [activeItem, setActiveItem] = useState('/');

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar/NavBar';
-import Main from './Components/Main/Main';
-import User from './Components/UserDirectory/User';
+import Main from './Components/Pages/Main/Main';
+import User from './Components/Pages/UserDirectory/User';
 import 'primeflex/primeflex.css';
 
 const App = () => {

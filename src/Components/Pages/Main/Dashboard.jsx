@@ -1,13 +1,13 @@
 import React from 'react';
 import 'primeflex/primeflex.css';
-import centerImg from '../../assets/center-img.png'
-import untitled from '../../assets/Untitled.png'
+import centerImg from '../../../assets/center-img.png'
+import untitled from '../../../assets/Untitled.png'
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import { InputText } from "primereact/inputtext";
-import './Main.css'
+import '../../CSS/Main.css'
 
 const Dashboard = () =>{
     const searchFooter = (

@@ -25,9 +25,7 @@
     }
   }
 } 
-.p-datatable-table {
-  height: 100vh;
-}
+
 #scrollableDiv{
   height: 100%;
   overflow-y: auto;
@@ -41,4 +39,10 @@
   color: #f10163;
   background-color: white;
   border-radius: 50%;
+}
+
+@media (min-width: 1921px) {
+  * {
+    font-size: large;
+  }
 }

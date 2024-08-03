@@ -2,9 +2,9 @@ import React from 'react';
 import { Splitter, SplitterPanel } from 'primereact/splitter';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { useFetch } from './useUser.jsx';
-import './User.css';
-import image from '../../assets/book&pen.png';
+import { useUser } from '../../Hook/useUser.jsx';
+import '../../CSS/User.css';
+import image from '../../../assets/book&pen.png';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import 'primeflex/primeflex.css';
 import { IconField } from "primereact/iconfield";
@@ -13,9 +13,7 @@ import { InputText } from "primereact/inputtext";
 import { Avatar } from 'primereact/avatar';
 
 const User = () => {
-  const { error, search, setSearch, searchedUsers, hasMore, fetchMoreData } = useFetch(
-    'https://dummyjson.com/users?limit=10&select=id,firstName,lastName,maidenName,age'
-  );
+  const { error, search, setSearch, data, hasMore, fetchMoreData } = useUser();
 
   const avatarBodyTemplate = (rowData) => (
     <Avatar
@@ -52,7 +50,7 @@ const User = () => {
       <SplitterPanel className="flex align-items-center justify-content-center h-screen" size={60} minSize={40}>
         <div id="scrollableDiv" style={{ height: '100%', overflow: 'auto' }}>
           <InfiniteScroll
-            dataLength={searchedUsers.length}
+            dataLength={data.length}
             next={fetchMoreData}
             hasMore={hasMore}
             loader={<p>Loading more...</p>}
@@ -61,18 +59,19 @@ const User = () => {
           >
             {error && <p>Error: {error}</p>}
             <DataTable
-              value={searchedUsers}
+              value={data}
               header={header}
               scrollable
               scrollHeight="flex"
               sortField=""
               className=" text-sm"
+
             >
-              <Column header="" body={avatarBodyTemplate} style={{ width: '80px' }} />
-              <Column field="firstName" header="Name" body={nameBodyTemplate} sortable style={{ width: '150px' }} />
-              <Column header="Kurzbezeichnung" body={() => null} sortable style={{ width: '180px' }} />
-              <Column header="Hauptarbeitsort" body={() => null} sortable style={{ width: '180px' }} />
-              <Column header="" body={actionBodyTemplate} style={{ width: '60px' }} />
+              <Column header="" body={avatarBodyTemplate} className="px-3" />
+              <Column field="firstName" header="Name" body={nameBodyTemplate} sortable />
+              <Column header="Kurzbezeichnung" body={() => null} sortable />
+              <Column header="Hauptarbeitsort" body={() => null} sortable  />
+              <Column header="" body={actionBodyTemplate} className="pr-4" />
             </DataTable>
           </InfiniteScroll>
         </div>

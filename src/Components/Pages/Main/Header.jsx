@@ -1,6 +1,6 @@
 import React from 'react';
 import 'primeflex/primeflex.css';
-import './Main.css'
+import '../../CSS/Main.css'
 const Header = () =>{
     return(
         <div className="custom-header ">       

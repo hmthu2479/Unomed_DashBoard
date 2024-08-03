@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     fs: {
-      allow: ['node_modules','.']
+      allow: ['node_modules','.'],
+      hmr: true
     }
   }
 })
