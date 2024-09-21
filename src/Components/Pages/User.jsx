@@ -1,9 +1,9 @@
-import React from 'react';
 import { Splitter, SplitterPanel } from 'primereact/splitter';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { useFetch } from './useUser.jsx';
-import './User.css';
+import useUser from '../Hooks/useUser.jsx';
+import { useEffect, useState } from 'react';
+import '../Style/User.css';
 import image from '../../assets/book&pen.png';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import 'primeflex/primeflex.css';
@@ -13,22 +13,33 @@ import { InputText } from "primereact/inputtext";
 import { Avatar } from 'primereact/avatar';
 
 const User = () => {
-  const { error, search, setSearch, searchedUsers, hasMore, fetchMoreData } = useFetch(
-    'https://dummyjson.com/users?limit=10&select=id,firstName,lastName,maidenName,age'
-  );
+  const { users, fetchMoreData,hasMore, search, setSearch, loading } = useUser();
+  const randomColor = () => {
+    const r = (Math.floor(Math.random()*55)+200);
+    const b = (Math.floor(Math.random()*55)+200);
+    const g = (Math.floor(Math.random()*55)+200);
+    return `rgb(${r},${g},${b})`;
+};
 
-  const avatarBodyTemplate = (rowData) => (
-    <Avatar
-      className="p-overlay-badge"
-      style={{ backgroundColor: rowData.color, color: '#000' }}
-    >
-      <span>{rowData.firstName.charAt(0)}</span>
-      <i className="fa-solid fa-circle-dot badge-icon" />
-    </Avatar>
-  );
-
-  const nameBodyTemplate = (rowData) => <span>{`${rowData.firstName} ${rowData.lastName}`}</span>;
-  const actionBodyTemplate = () => <i className="pi pi-send" />;
+  const AvatarUser = (user) => {
+    const [color, setColor] = useState('');
+  
+    useEffect(() => {
+      setColor(randomColor());
+    },[]);
+  
+    return (
+      <Avatar
+        className="p-overlay-badge"
+        style={{ backgroundColor: color, color: '#000' }}
+      >
+        <span>{user.firstName.charAt(0)}</span>
+        <i className="fa-solid fa-circle-dot badge-icon" />
+      </Avatar>
+    );
+  };
+  const sendIcon = () => <i className="pi pi-send" />;
+  const userName = (user) => <span>{`${user.firstName} ${user.lastName}`}</span>;
 
   const header = (
     <div className="flex flex-wrap align-items-center justify-content-between gap-2 ">
@@ -52,27 +63,31 @@ const User = () => {
       <SplitterPanel className="flex align-items-center justify-content-center h-screen" size={60} minSize={40}>
         <div id="scrollableDiv" style={{ height: '100%', overflow: 'auto' }}>
           <InfiniteScroll
-            dataLength={searchedUsers.length}
+            dataLength={users.length}
             next={fetchMoreData}
             hasMore={hasMore}
-            loader={<p>Loading more...</p>}
-            endMessage={<p>No more users to load.</p>}
+            loader={<h4>Loading...</h4>}
+            endMessage={
+              !loading &&
+              <p style={{ textAlign: 'center' }}>
+                <b>Yay! You have seen it all</b>
+              </p>
+            }
             scrollableTarget="scrollableDiv"
           >
-            {error && <p>Error: {error}</p>}
             <DataTable
-              value={searchedUsers}
+              value={users}
               header={header}
               scrollable
               scrollHeight="flex"
               sortField=""
               className=" text-sm"
             >
-              <Column header="" body={avatarBodyTemplate} style={{ width: '80px' }} />
-              <Column field="firstName" header="Name" body={nameBodyTemplate} sortable style={{ width: '150px' }} />
-              <Column header="Kurzbezeichnung" body={() => null} sortable style={{ width: '180px' }} />
-              <Column header="Hauptarbeitsort" body={() => null} sortable style={{ width: '180px' }} />
-              <Column header="" body={actionBodyTemplate} style={{ width: '60px' }} />
+              <Column header="" body={AvatarUser} className="px-3" />
+              <Column field="firstName" header="Name" body={userName} sortable style={{ width:'25%'}}  />
+              <Column header="Kurzbezeichnung" body={() => null} sortable style={{ width:'25%'}}  />
+              <Column header="Hauptarbeitsort" body={() => null} sortable style={{ width:'25%'}} />
+              <Column header="" body={sendIcon} className="pr-4" />
             </DataTable>
           </InfiniteScroll>
         </div>

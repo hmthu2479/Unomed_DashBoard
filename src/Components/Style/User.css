@@ -26,13 +26,11 @@
   }
 } 
 .p-datatable-table {
-  height: 100vh;
-}
-#scrollableDiv{
+  width: 100%;
   height: 100%;
-  overflow-y: auto;
-  width: 100%;;
+  table-layout: fixed;
 }
+
 .badge-icon {
   position: absolute;
   right: -4px;

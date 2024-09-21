@@ -1,8 +1,7 @@
-import React from 'react';
 import 'primeflex/primeflex.css';
 import Header from './Header';
 import Dashboard from './Dashboard';
-import './Main.css';
+import '../Style/Main.css';
 
 const Main = () => {
   return (
