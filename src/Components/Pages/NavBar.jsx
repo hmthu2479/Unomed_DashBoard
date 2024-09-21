@@ -7,7 +7,11 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import { Avatar } from 'primereact/avatar';
 import { Badge } from 'primereact/badge';
+<<<<<<< HEAD:src/Components/Pages/NavBar.jsx
 import '../Style/NavBar.css';
+=======
+import '../CSS/NavBar.css';
+>>>>>>> 43a67bc5dd26a353eacb9a93567bbfde82059b73:src/Components/NavBar/NavBar.jsx
 
 const NavBar = () => {
   const topItems = [

@@ -20,9 +20,13 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-infinite-scroll-component": "^6.1.0",
+<<<<<<< HEAD
     "react-query": "^3.39.3",
     "react-router-dom": "^6.26.1",
     "use-debounce": "^10.0.3"
+=======
+    "use-debounce": "^10.0.2"
+>>>>>>> 43a67bc5dd26a353eacb9a93567bbfde82059b73
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
