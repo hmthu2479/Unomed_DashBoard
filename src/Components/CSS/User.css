@@ -1,0 +1,53 @@
+.p-datatable{
+  .p-datatable-header{
+    padding: 1rem 0.5rem;
+  }
+  .p-datatable-tbody {
+    > tr {
+      > td{
+        padding: 0.5rem 0.5rem;
+      }
+    }
+    > tr > td:nth-child(1){
+      display: flex;
+      justify-content: center;
+      padding: 15px 0.5rem;
+    }
+    > tr > td:nth-child(5){
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      color: #f10163;
+      padding: 23.42px 0;
+    }
+    .p-avatar{
+      border-radius: 0.4rem;
+    }
+  }
+} 
+<<<<<<<< HEAD:src/Components/Style/User.css
+.p-datatable-table {
+  width: 100%;
+========
+
+#scrollableDiv{
+>>>>>>>> 43a67bc5dd26a353eacb9a93567bbfde82059b73:src/Components/CSS/User.css
+  height: 100%;
+  table-layout: fixed;
+}
+
+.badge-icon {
+  position: absolute;
+  right: -4px;
+  top: -2px;
+  font-size: 0.6rem;
+  color: #f10163;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@media (min-width: 1921px) {
+  * {
+    font-size: large;
+  }
+}

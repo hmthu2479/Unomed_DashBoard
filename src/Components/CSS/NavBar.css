@@ -3,8 +3,9 @@
 }
 
 nav{
-  width: 3.2rem;
+  width: 3rem;
   background-color: #122e56;
+
 }
 
 .p-menubar {
@@ -18,52 +19,54 @@ nav{
     color: #ffffff;
     background-color: #1a3d6f;
     border-radius: 7px;
-    height:30px;
-    width: 30px;
-    margin-top: 12px;
+    margin: 12px 5px 0;
 
     > .p-menuitem-content .p-menuitem-link{
       padding: 0.6rem 0.5rem;
+      color: #ffffff;
+      background-color: #1a3d6f;
+      border-radius: 7px;
+      border: none;    
+      height:30px;
+      width: 30px; 
+      &:hover{
+        color: #122e56;
+        background-color: white;
+      }
+
     }
 
-    &:nth-last-child(1) {
-      margin-bottom: 8px;
-    }
-    &:nth-child(2) {
-      margin-top: 70px;
-    }
-    &:nth-child(6) {
-      margin-top: 20vh;
-    }
-    &:nth-child(1) {
-      margin-top: 0px;
-    }
     .p-menuitem-icon {
       margin: 0;
       color: #ffffff;
       font-size: 12px;
     }
-    &.active {
+    .p-menuitem-link.active{
       background-color: #ffffff;
+      border-radius: inherit;
+      .p-menuitem-icon{
+        color: #122e56;
+      }  
     }
-    
-    &:hover .p-menuitem-icon,&.active .p-menuitem-icon {
+    &:hover .p-menuitem-icon {
       color: #1a3d6f;
     }
     .p-menuitem-content {
       border-radius: inherit;
       color: #122e56;
       transition: background-color 0.2s, border-radius 0.2s;
-      &:hover{
-        background-color: #ffffff;
-      }
     }
     
   }
     
 }
 
+.custom-menubar.top{
+  li:nth-child(1){
+    margin: 2px 5px 45px;
+  }
 
+}
 .p-avatar img{
   border-radius: 7px;
 }
@@ -74,10 +77,31 @@ nav{
   top: 2px;
   right: 1px;
 }
+
+.navbar-img {
+  width: 35px;
+  height: 35px;
+
+}
+
+.logo {
+  margin-top: 10px;
+}
+
+.avatar {
+  margin-top: 12px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 960px) {
+  nav{
+    padding: 0 4px;
+  }
   .p-menubar .p-menubar-root-list {
     display: flex;
     background-color: #122e56;
+    box-shadow: none;
+
   }
 }
 

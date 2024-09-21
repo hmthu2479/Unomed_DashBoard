@@ -25,7 +25,7 @@
   
 .custom-dashboard{
     padding: 0 40px;
-    min-height: 90vh;
+    min-height: 89vh;
 }
 
 .custom-content {
@@ -80,7 +80,8 @@
     }  
 
 }
-.custom.footer1{
+
+.custom.searchFooter{
     .p-icon-field-right {
         > .p-inputtext{
             padding-right: 3rem;
@@ -95,7 +96,7 @@
         }
     }
 }
-.custom.footer2,.custom.footer3{
+.custom.connectFooter,.custom.sendFooter{
     Button{
         font-size: 12px;
         display: flex;
@@ -115,7 +116,7 @@
         margin-top: 2px;
     }
 }
-.custom.footer2 {
+.custom.connectFooter {
     .p-button {
       display: flex;
       align-items: center;
@@ -127,7 +128,7 @@
       }
     }
   }
-.custom.footer3{
+.custom.sendFooter{
     Button{
         background-color: #122e56;
         bottom: -10px;
