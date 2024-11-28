@@ -1,6 +1,6 @@
 .p-datatable{
   .p-datatable-header{
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 0.5rem;
   }
   .p-datatable-tbody {
     > tr {
@@ -39,4 +39,25 @@
   color: #f10163;
   background-color: white;
   border-radius: 50%;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #f10163;
+  padding: 5px;
+  border-radius: 7px;
+  cursor: pointer;
+  border: 0;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+a {
+  text-decoration: none;
+}
+thead > :nth-last-child(1){
+  display:none;
 }

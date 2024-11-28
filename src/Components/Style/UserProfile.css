@@ -1,0 +1,22 @@
+.p-panel .p-panel-content{
+    border:none;
+}
+.update-btn,.delete-btn {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #f10163;
+    padding: 5px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: solid 2px #f10163;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+.p-panel-header{
+    display: block;
+    padding:0.5rem;
+    border: left 1px;;
+}
